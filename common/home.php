@@ -94,6 +94,7 @@ if ($_GET) {
         $price = $row["Price"];
         $quantity = $row["Quantity"];
         $pro_id = $row["Product_ID"];
+        $modified_price = $price + 20;
 
         echo '<div class="group relative">
           <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-60 transition ease duration-500">
@@ -109,7 +110,7 @@ if ($_GET) {
               </h3>
               <p class="mt-1 text-sm text-gray-500">Stocks left: ' . $quantity . '</p>
             </div>
-            <p class="text-sm font-medium text-gray-900">₹ ' . $price . '</p>
+            <p class="text-sm font-medium text-gray-900">₹ ' . $modified_price . '</p>
           </div>
         </div>
       ';
@@ -138,6 +139,7 @@ if ($_GET) {
         $price = $row["Price"];
         $quantity = $row["Quantity"];
         $pro_id = $row["Product_ID"];
+        $modified_price = $price + 20;
 
         echo '<div class="group relative">
           <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-60 transition ease duration-500">
@@ -153,7 +155,7 @@ if ($_GET) {
               </h3>
               <p class="mt-1 text-sm text-gray-500">Stocks left: ' . $quantity . '</p>
             </div>
-            <p class="text-sm font-medium text-gray-900">₹ ' . $price . '</p>
+            <p class="text-sm font-medium text-gray-900">₹ ' . $modified_price . '</p>
           </div>
         </div>
       ';
@@ -185,6 +187,7 @@ if ($_GET) {
         $price = $row["Price"];
         $quantity = $row["Quantity"];
         $pro_id = $row["Product_ID"];
+        $modified_price = $price + 20;
 
         echo '<div class="group relative">
           <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-60 transition ease duration-500">
@@ -200,7 +203,7 @@ if ($_GET) {
               </h3>
               <p class="mt-1 text-sm text-gray-500">Stocks left: ' . $quantity . '</p>
             </div>
-            <p class="text-sm font-medium text-gray-900">₹ ' . $price . '</p>
+            <p class="text-sm font-medium text-gray-900">₹ ' . $modified_price . '</p>
           </div>
         </div>
       ';
