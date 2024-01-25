@@ -98,7 +98,7 @@ if ($_GET) {
 
         echo '<div class="group relative">
           <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-60 transition ease duration-500">
-            <img src="' . $image . '" alt="" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+            <img src="' . $image . '" alt="" loading="lazy" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
           </div>
           <div class="mt-4 flex justify-between">
             <div>
@@ -143,7 +143,7 @@ if ($_GET) {
 
         echo '<div class="group relative">
           <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-60 transition ease duration-500">
-            <img src="' . $image . '" alt="" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+            <img src="' . $image . '" alt="" loading="lazy" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
           </div>
           <div class="mt-4 flex justify-between">
             <div>
@@ -191,7 +191,7 @@ if ($_GET) {
 
         echo '<div class="group relative">
           <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-60 transition ease duration-500">
-            <img src="' . $image . '" alt="" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+            <img src="' . $image . '" alt="" loading="lazy" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
           </div>
           <div class="mt-4 flex justify-between">
             <div>

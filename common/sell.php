@@ -46,7 +46,7 @@ include "menubar.php";
 
         <!-- Price -->
         <div>
-          <label for="p_price" class="block text-sm font-medium leading-6 text-gray-900">Product Price (INR)</label>
+          <label for="p_price" class="block text-sm font-medium leading-6 text-gray-900">Product Price (₹)</label>
           <div class="mt-2">
             <input id="p_price" name="p_price" type="number" autocomplete="off" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none sm:text-sm sm:leading-6 transition ease duration-500">
           </div>

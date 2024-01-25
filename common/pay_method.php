@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-full" lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -21,6 +21,16 @@
     }
 
     require_once 'conn.php';
+
+    $sql = "SELECT `Quantity` FROM `products` WHERE `Product_ID` ='$pro_id'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    $pro_quantity = $row['Quantity'];
+
+    if ($pro_quantity < $quantity) {
+      header('Location: product.php?product-id=' . $pro_id . '&action=not-enough-stocks');
+    }
 
     $sql = '';
   }
