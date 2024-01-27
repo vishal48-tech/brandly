@@ -1,5 +1,14 @@
 <?php
+
+function generateRandomNumber()
+{
+  $min = 100000;
+  $max = 999999;
+  return mt_rand($min, $max);
+}
+
 $card_num_spaces = $card_num = $expiry = $cvc = $amount = "";
+$order_id = generateRandomNumber();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Get all data from form
@@ -32,12 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $card_cvc = $row['CVC'];
     $balance = $row['Balance'];
 
+    $price = $amount / $quantity;
+
     if ($card_expiry != $expiry || $card_cvc != $cvc) {
       header("Location: payment.php?product-id=$pro_id&price=$price&quantity=$quantity&action=invalid-details&payment=online");
       exit();
     }
-
-    $price = $amount / $quantity;
 
     // Check if balance < product's amount
     if ($balance < $amount) {
@@ -48,6 +57,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       // Update balance in database
       $sql = "UPDATE `mastercard_users` SET `Balance`='$new_balance' WHERE `Card_number` = '$card_num'";
+      $result = $conn->query($sql);
+
+      // Get admin's balance
+      $sql = "SELECT `Balance` FROM `mastercard_users` WHERE `Card_number` = '9120384293788743'";
+      $result = $conn->query($sql);
+      $row = $result->fetch_assoc();
+
+      $admin_balance = $row['Balance'];
+
+      // Set admin's new balance
+      $new_admin_balance = $admin_balance + $amount;
+
+      // Update admin's balance in database
+      $sql = "UPDATE `mastercard_users` SET `Balance`='$new_admin_balance' WHERE `Card_number` = '9120384293788743'";
       $result = $conn->query($sql);
 
       // Get quantity from database
@@ -77,8 +100,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $user_email = $row['Email'];
       $user_phone = $row['Phone_number'];
 
+      // Get order ID from database
+      $sql = "SELECT `Order_ID` FROM `users_cart` WHERE `Order_ID` = '$order_id'";
+      $result = $conn->query($sql);
+      
+      // Check for same order ID
+      if ($result->num_rows > 0) {
+        do {
+          $order_id = generateRandomNumber();
+        } while ($result->num_rows > 0);
+      }
+
       // Insert values into database
-      $sql = "INSERT INTO `users_cart`(`User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`) VALUES ('$user_email','$user_phone','$pro_id','$quantity')";
+      $sql = "INSERT INTO `users_cart`(`Order_ID`, `User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`) VALUES ('$order_id','$user_email','$user_phone','$pro_id','$quantity')";
       $result = $conn->query($sql);
 
       header("Location: payment.php?product-id=$pro_id&price=$price&quantity=$quantity&action=success&payment=online");

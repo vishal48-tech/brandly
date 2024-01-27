@@ -45,12 +45,12 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="home.php?category=default" class="<?= basename($_SERVER['PHP_SELF']) == 'home.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium transition ease duration-500" aria-current="page">Home</a>
               <a href="sell.php" class="<?= basename($_SERVER['PHP_SELF']) == 'sell.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium transition ease duration-500">Sell</a>
-              <button class="<?= basename($_SERVER['PHP_SELF']) == 'sell.php' ? 'hidden' : '' ?> text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium transition ease duration-500" id="category-btn">Category</button>
+              <button class="<?= basename($_SERVER['PHP_SELF']) == 'sell.php' ? 'hidden' : '' ?> <?= basename($_SERVER['PHP_SELF']) == 'cart.php' ? 'hidden' : '' ?> text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium transition ease duration-500" id="category-btn">Category</button>
             </div>
           </div>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:opacity-75 transition ease duration-500">
+          <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:opacity-75 transition ease duration-500" onclick="window.location.href = 'cart.php'">
             <span class="absolute -inset-1.5"></span>
             <span class="sr-only">View cart</span>
             <svg class="h-6 w-6 text-cyan-400" fill="currentColor" viewBox="0 0 16 16" stroke-width="0" stroke="currentColor" aria-hidden="true">
@@ -88,7 +88,7 @@
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="home.php?category=default" class="<?= basename($_SERVER['PHP_SELF']) == 'home.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> block rounded-md px-3 py-2 text-base font-medium transition ease duration-500">Home</a>
         <a href="sell.php" class="<?= basename($_SERVER['PHP_SELF']) == 'sell.php' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> block rounded-md px-3 py-2 text-base font-medium transition ease duration-500">Sell</a>
-        <button class="<?= basename($_SERVER['PHP_SELF']) == 'sell.php' ? 'hidden' : '' ?> text-gray-300 block rounded-md px-3 py-2 text-base font-medium transition ease duration-500" id="category-btn2">Category</button>
+        <button class="<?= basename($_SERVER['PHP_SELF']) == 'sell.php' ? 'hidden' : ''?> <?= basename($_SERVER['PHP_SELF']) == 'cart.php' ? 'hidden' : '' ?> text-gray-300 block rounded-md px-3 py-2 text-base font-medium transition ease duration-500" id="category-btn2">Category</button>
       </div>
     </div>
 

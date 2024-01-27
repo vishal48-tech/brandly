@@ -210,8 +210,17 @@
         ';
   } else if ($payment == 'cash') {
 
+    function generateRandomNumber()
+    {
+      $min = 100000;
+      $max = 999999;
+      return mt_rand($min, $max);
+    }
+
+    $order_id = generateRandomNumber();
+
     require_once 'conn.php';
-    
+
     // Get quantity from database
     $sql = "SELECT `Quantity` FROM `products` WHERE `Product_ID` = '$pro_id'";
     $result = $conn->query($sql);
@@ -239,8 +248,19 @@
     $user_email = $row['Email'];
     $user_phone = $row['Phone_number'];
 
+    // Get order ID from database
+    $sql = "SELECT `Order_ID` FROM `users_cart` WHERE `Order_ID` = '$order_id'";
+    $result = $conn->query($sql);
+
+    // Check for same order ID
+    if ($result->num_rows > 0) {
+      do {
+        $order_id = generateRandomNumber();
+      } while ($result->num_rows > 0);
+    }
+
     // Insert values into database
-    $sql = "INSERT INTO `users_cart`(`User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`) VALUES ('$user_email','$user_phone','$pro_id','$quantity')";
+    $sql = "INSERT INTO `users_cart`(`Order_ID`, `User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`) VALUES ('$order_id','$user_email','$user_phone','$pro_id','$quantity')";
     $result = $conn->query($sql);
 
     echo '<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
