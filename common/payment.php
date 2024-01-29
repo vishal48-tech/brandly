@@ -260,7 +260,7 @@
     }
 
     // Insert values into database
-    $sql = "INSERT INTO `users_cart`(`Order_ID`, `User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`) VALUES ('$order_id','$user_email','$user_phone','$pro_id','$quantity')";
+    $sql = "INSERT INTO `users_cart`(`Order_ID`, `User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`, `Payment_type`) VALUES ('$order_id','$user_email','$user_phone','$pro_id','$quantity','cash')";
     $result = $conn->query($sql);
 
     echo '<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">

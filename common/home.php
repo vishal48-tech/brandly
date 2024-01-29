@@ -1,3 +1,7 @@
+<?php
+include "menubar.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +13,6 @@
 
 <body>
 
-  <?php
-  include "menubar.php";
-  ?>
   <div class="relative z-20 hidden" id="side-panel">
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
@@ -79,7 +80,7 @@ if ($_GET) {
   if ($category == "default") {
     require_once "conn.php";
 
-    $sql = "SELECT `Product_ID`,`Product_Name`, `Image`, `Price`, `Quantity` FROM `products` WHERE `Quantity` != '0'";
+    $sql = "SELECT `Product_ID`,`Product_Name`, `Image`, `Price`, `Quantity` FROM `products` WHERE `Quantity` != '0' LIMIT 1000";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -118,13 +119,12 @@ if ($_GET) {
 
       echo '</div>
     </div>
-  </div>
-        ';
+  </div>';
     }
   } else if ($category == $category) {
     require_once "conn.php";
 
-    $sql = "SELECT `Product_ID`,`Product_Name`, `Image`, `Price`, `Quantity` FROM `products` WHERE `Category` = '$category' AND `Quantity` != '0'";
+    $sql = "SELECT `Product_ID`,`Product_Name`, `Image`, `Price`, `Quantity` FROM `products` WHERE `Category` = '$category' AND `Quantity` != '0' LIMIT 500";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -163,8 +163,7 @@ if ($_GET) {
 
       echo '</div>
     </div>
-  </div>
-        ';
+  </div>';
     } else {
       echo '<div class="bg-white">
 <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:pt-24 lg:max-w-7xl lg:px-8">
@@ -172,7 +171,7 @@ if ($_GET) {
   </div>';
     }
 
-    $sql = "SELECT `Product_ID`,`Product_Name`, `Image`, `Price`, `Quantity` FROM `products` WHERE `Category` != '$category' AND `Quantity` != '0'";
+    $sql = "SELECT `Product_ID`,`Product_Name`, `Image`, `Price`, `Quantity` FROM `products` WHERE `Category` != '$category' AND `Quantity` != '0' LIMIT 500";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -211,8 +210,7 @@ if ($_GET) {
 
       echo '</div>
     </div>
-  </div>
-        ';
+  </div>';
     }
   }
 }

@@ -171,7 +171,7 @@ include "menubar.php";
                   </div>
                 </div>
               </div>
-                        ';
+              ';
       }
     }
     ?>

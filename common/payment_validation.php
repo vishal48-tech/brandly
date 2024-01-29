@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Get order ID from database
       $sql = "SELECT `Order_ID` FROM `users_cart` WHERE `Order_ID` = '$order_id'";
       $result = $conn->query($sql);
-      
+
       // Check for same order ID
       if ($result->num_rows > 0) {
         do {
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
 
       // Insert values into database
-      $sql = "INSERT INTO `users_cart`(`Order_ID`, `User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`) VALUES ('$order_id','$user_email','$user_phone','$pro_id','$quantity')";
+      $sql = "INSERT INTO `users_cart`(`Order_ID`, `User_email`, `User_phone_num`, `Product_ID`, `Product_Quantity`, `Card_num`) VALUES ('$order_id','$user_email','$user_phone','$pro_id','$quantity','$card_num')";
       $result = $conn->query($sql);
 
       header("Location: payment.php?product-id=$pro_id&price=$price&quantity=$quantity&action=success&payment=online");

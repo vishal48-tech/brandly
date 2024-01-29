@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $name = $_POST["name"];
     $phone_number = $_POST["phone"];
+    $address = $_POST["address"];
 
     require_once 'conn.php';
 
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         setcookie('User_email', $email, time() + 60 * 60 * 24 * 30);
         setcookie('User_password', $password, time() + 60 * 60 * 24 * 30);
 
-        $sql = "insert into userlist(Name, Email, Phone_number, Password) values ('$name','$email','$phone_number','$password')";
+        $sql = "insert into userlist(Name, Email, Phone_number, Password, Address) values ('$name','$email','$phone_number','$password','$address')";
         $result = $conn->query($sql);
 
         $sql = "INSERT INTO `users`(`Email`, `Phone_number`, `Usertype`) VALUES ('$email','$phone_number','user')";
