@@ -2,6 +2,8 @@
 <pre>Use XAMPP server to run this project on localhost.
 Import sql file in mysql database to use data without creating database yourself.
 You need internet connection on first load to make tailwind css cdn work.
+This web-app is fully responsive.
+This is only for user side, admin side not there.
 </pre><br><br>
 
 <h1>Images</h1><br>
