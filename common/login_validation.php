@@ -28,8 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 setcookie('User_password', $password, time() + 60 * 60 * 24 * 30);
 
                 header("Location: home.php?category=default");
-            } else if ($usertype == "admin") {
-                header("Location: ../admin/home.php");
             }
         }
     } else {
