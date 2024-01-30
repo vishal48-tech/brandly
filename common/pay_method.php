@@ -1,3 +1,9 @@
+<?php
+if (!isset($_COOKIE['User_email']) && !isset($_COOKIE['User_password'])) {
+  header('Location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html class="h-full" lang="en">
 

@@ -1,3 +1,9 @@
+<?php
+if (!isset($_COOKIE['User_email']) && !isset($_COOKIE['User_password'])) {
+  header('Location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html class="h-full" lang="en">
 
@@ -77,7 +83,7 @@
               </div>
             </div>
             <div class="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 justify-center">
-              <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" onclick="window.location.href = `javascript:history.back()`">OK</button>
+              <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto transition ease duration-500" onclick="window.location.href = `javascript:history.back()`">OK</button>
             </div>
           </div>
         </div>

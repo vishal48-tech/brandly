@@ -1,5 +1,10 @@
 <?php
+if (!isset($_COOKIE['User_email']) && !isset($_COOKIE['User_password'])) {
+  header('Location: index.php');
+}
+
 include "menubar.php";
+include "scroll_top.php";
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +37,7 @@ include "menubar.php";
         <div>
           <label for="p_image" class="block text-sm font-medium leading-6 text-gray-900">Product Image</label>
           <div class="mt-2">
-            <input id="p_image" name="p_image" type="file" autocomplete="off" required accept="image/*" class="block w-full rounded-md cursor-pointer border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none sm:text-sm sm:leading-6 transition ease duration-500">
+            <input id="p_image" name="p_image" type="file" autocomplete="off" required accept="image/*" class="block w-full rounded-md cursor-pointer border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none sm:text-sm sm:leading-6 file:rounded-2xl file:border-none file:hover:cursor-pointer file:bg-indigo-600 file:mx-5 file:my-1 file:px-5 file:py-1 file:hover:bg-indigo-500 file:transition file:ease file:duration-500 file:text-white transition ease duration-500">
           </div>
         </div>
 
@@ -64,7 +69,7 @@ include "menubar.php";
         <div>
           <label for="p_category" class="block text-sm font-medium leading-6 text-gray-900">Product Category</label>
           <div class="mt-2">
-            <select name="p_category" id="p_category" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none sm:text-sm sm:leading-6 transition ease duration-500">
+            <select name="p_category" id="p_category" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none sm:text-sm sm:leading-6 transition ease duration-500 appearance-none hover:cursor-pointer">
               <option selected disabled value="">Select</option>
               <option value="monitor">Monitor</option>
               <option value="mouse">Mouse</option>
@@ -108,10 +113,6 @@ include "menubar.php";
     </div>
 
     <?php
-    include "scroll_top.php";
-    ?>
-
-    <?php
     if ($_GET) {
       $action = $_GET["action"];
       if ($action == "invalid-image") {
@@ -136,7 +137,7 @@ include "menubar.php";
                         </div>
                       </div>
                       <div class="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 justify-center">
-                        <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" onclick="window.location.href = `sell.php`">OK</button>
+                        <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto transition ease duration-500" onclick="window.location.href = `javascript:history.back()`">OK</button>
                       </div>
                     </div>
                   </div>
@@ -165,7 +166,7 @@ include "menubar.php";
                         </div>
                       </div>
                       <div class="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 justify-center">
-                        <button type="button" class="inline-flex w-full justify-center rounded-md bg-blue-600 px-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto" onclick="window.location.href = `sell.php`">OK</button>
+                        <button type="button" class="inline-flex w-full justify-center rounded-md bg-blue-600 px-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition ease duration-500" onclick="window.location.href = `javascript:history.back()`">OK</button>
                       </div>
                     </div>
                   </div>

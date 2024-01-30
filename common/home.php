@@ -1,5 +1,10 @@
 <?php
+if (!isset($_COOKIE['User_email']) && !isset($_COOKIE['User_password'])) {
+  header('Location: index.php');
+}
+
 include "menubar.php";
+include "scroll_top.php";
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +40,13 @@ include "menubar.php";
                 <h2 class="text-base font-semibold leading-6 text-gray-900">Select a category</h2>
               </div>
               <div class="relative mt-6 flex flex-wrap gap-x-3 gap-y-5 px-4 sm:px-6">
-                <a href="home.php?category=default" class="bg-gray-200 hover:opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Default</a>
-                <a href="home.php?category=monitor" class="bg-gray-200 hover:opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Monitor</a>
-                <a href="home.php?category=mouse" class="bg-gray-200 hover:opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Mouse</a>
-                <a href="home.php?category=keyboard" class="bg-gray-200 hover:opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Keyboard</a>
-                <a href="home.php?category=television" class="bg-gray-200 hover:opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Television</a>
-                <a href="home.php?category=book" class="bg-gray-200 hover:opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Book</a>
-                <a href="home.php?category=smartphone" class="bg-gray-200 hover:opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Smartphone</a>
+                <a href="home.php?category=default" class="bg-gray-200 hover:bg-opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Default</a>
+                <a href="home.php?category=monitor" class="bg-gray-200 hover:bg-opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Monitor</a>
+                <a href="home.php?category=mouse" class="bg-gray-200 hover:bg-opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Mouse</a>
+                <a href="home.php?category=keyboard" class="bg-gray-200 hover:bg-opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Keyboard</a>
+                <a href="home.php?category=television" class="bg-gray-200 hover:bg-opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Television</a>
+                <a href="home.php?category=book" class="bg-gray-200 hover:bg-opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Book</a>
+                <a href="home.php?category=smartphone" class="bg-gray-200 hover:bg-opacity-75 py-1 px-3 rounded-lg transition ease duration-500">Smartphone</a>
               </div>
             </div>
           </div>
@@ -49,10 +54,6 @@ include "menubar.php";
       </div>
     </div>
   </div>
-
-  <?php
-  include "scroll_top.php";
-  ?>
 
   <script>
     let side_panel = document.getElementById('side-panel');
@@ -99,17 +100,17 @@ if ($_GET) {
 
         echo '<div class="group relative">
           <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 h-60 transition ease duration-500">
-            <img src="' . $image . '" alt="" loading="lazy" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+            <img src="' . $image . '" alt="" loading="lazy" class="h-full w-full object-cover object-center">
           </div>
           <div class="mt-4 flex justify-between">
             <div>
-              <h3 class="text-sm text-gray-700">
+              <h3 class="text-sm text-gray-700 font-semibold">
                 <a href="product.php?product-id=' . $pro_id . '">
                   <span aria-hidden="true" class="absolute inset-0"></span>
       ' . $pro_name . '
                 </a>
               </h3>
-              <p class="mt-1 text-sm text-gray-500">Stocks left: ' . $quantity . '</p>
+              <p class="mt-1 text-sm text-gray-700">Stocks left: ' . $quantity . '</p>
             </div>
             <p class="text-sm font-medium text-gray-900">₹ ' . $modified_price . '</p>
           </div>
